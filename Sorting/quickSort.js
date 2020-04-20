@@ -1,22 +1,29 @@
-function sortByPivot(arr) {
+function sortByPivot(arr, start, end) {
     let pivot = arr[start];
     let countToBeSwap = start;
 
     for (let index = start+1; index < arr.length; index++) {
         if(arr[index] < pivot) {
             countToBeSwap++;
-            swap()
+            swap(arr, countToBeSwap, index)
         }
     }
-    swap(countToBeSwap+pivot, start, arr);
+    swap(arr, countToBeSwap, start);
+    return countToBeSwap;
 }
 
-function swap(index1, index2, arr) {
+function swap(arr, index1, index2) {
     [arr[index2], arr[index1]] = [arr[index1], arr[index2]];
 }
 
-function quickSort(arr, start=0, end=arr.length) {
-    sortByPivot(arr, start,end);
+function quickSort(arr, start = 0, end=arr.length) {
+    if(start < end){
+        const pivot = sortByPivot(arr, start, end);
+        quickSort(arr, start, pivot-1)
+        quickSort(arr, pivot+1, arr.length)
+    }
+
+    return arr;
 }
 
-const sortedArr = quickSort([10, -1, 2, 5, 6, 4, -5]);
+console.log(quickSort([3, 0, 2, 5, -1, 4, 1 ]));
