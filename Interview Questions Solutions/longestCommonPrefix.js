@@ -2,7 +2,6 @@
     https://leetcode.com/explore/featured/card/top-interview-questions-easy/127/strings/887/
 */
 
-
 class Node {
     constructor(value) {
         this.value=value;
