@@ -74,5 +74,6 @@ ll.push(14);
 ll.push(24);
 // ll.print();
 console.log('=========================');
-ll.reverse()
-ll.print()
+// ll.reverse()
+// ll.print()
+ll.pop(13);
